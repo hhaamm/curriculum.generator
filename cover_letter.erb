@@ -1,0 +1,21 @@
+<%
+# Pre processing variables
+
+tech_years = 0;
+@works.each do |work|
+  tech_years += work.years(tech)
+end
+
+tech_tools = "";
+code_samples = "";
+
+%>
+Hello, I'm interested on the project. My name is <%= name %>, I'm <%= age %> and I'm from Buenos Aires, Argentina.
+
+I have <%= tech_years %> years of experience working with <%= tech %> using different tools (<%= tech_tools %>).
+
+Here's some samples of my code:
+<%= code_samples %>
+
+Best Regards,
+<%= name %>
