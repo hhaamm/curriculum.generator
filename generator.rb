@@ -2,7 +2,7 @@ require 'erb'
 require 'date'
 
 class Curriculum
-  attr_accessor :name, :birth_date
+  attr_accessor :name, :birth_date, :city, :country
   def self.build(&block)
     @c = Curriculum.new
     @c.instance_eval &block
@@ -16,7 +16,7 @@ class Curriculum
   end
 
   def cover_letter(tech)
-    template_str = File.read("cover_letter.erb")
+    template_str = File.read(File.join(File.dirname(__FILE__),"cover_letter.erb"))
     renderer = ERB.new(template_str)
     puts renderer.result(binding())
   end
@@ -102,7 +102,6 @@ class Work
     if (date.is_a? Integer)
       date = {:year => date, :month => 1}
     end
-    puts date
     Date.parse(date[:year].to_s+"-"+date[:month].to_s+"-01")
   end
 

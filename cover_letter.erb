@@ -6,16 +6,18 @@ tech_years = 0;
   tech_years += work.years(tech)
 end
 
-tech_tools = "";
-code_samples = "";
+tech_tools = [];
+code_samples = [];
 
 %>
-Hello, I'm interested on the project. My name is <%= name %>, I'm <%= age %> and I'm from Buenos Aires, Argentina.
+Hello, I'm interested on the project. My name is <%= name %>, I'm <%= age %> and I'm from <%= city %>, <%= country %>.
 
-I have <%= tech_years %> years of experience working with <%= tech %> using different tools (<%= tech_tools %>).
-
+I have <%= tech_years.round(1) %> years of experience working with <%= tech %><% if tech_tools.size >0 %> using different tools (<%= tech_tools %>)<% end %>.
+<% if code_samples.size > 0 %>
+  
 Here's some samples of my code:
-<%= code_samples %>
-
+  <%= code_samples %>
+  
+<% end %>
 Best Regards,
 <%= name %>
